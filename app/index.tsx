@@ -1,5 +1,4 @@
-import { router } from "expo-router";
-import React, { useEffect } from "react";
+import React from "react";
 import {
   ActivityIndicator,
   Image,
@@ -10,12 +9,6 @@ import {
 } from "react-native";
 
 export default function Index() {
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      router.replace("/taxical");
-    }, 3000);
-    return () => clearTimeout(timer);
-  }, []);
   const { width, height } = useWindowDimensions();
 
   const isTablet = width >= 768;
@@ -66,10 +59,11 @@ export default function Index() {
 
         <ActivityIndicator size="large" style={{ marginTop: height * 0.05 }} />
       </View>
-
       <View
         style={{
-          marginTop: height * 0.03,
+          position: "absolute",
+          bottom: 20,
+          alignSelf: "center",
           alignItems: "center",
         }}
       >
